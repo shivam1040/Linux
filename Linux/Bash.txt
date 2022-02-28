@@ -1,0 +1,9 @@
+shell script is executed not compiled
+cat /etc/shells, shows the different available supported shells
+
+sh-bon shell, 1st shell
+bash- bon again shell, improved version of sh shell, standard gnu shell
+
+which bash, shows the location of bash shell
+intitally the bash files are unexecutable, so use chmod and the change the permission
+./filenam.sh, used to run the bash file

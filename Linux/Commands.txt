@@ -1,0 +1,141 @@
+shell is waht accepts commands and runs it
+pwd, displays current directory
+ls [option] [directory name]
+ls ~, displays home directory
+ls ../.., displays last second directory
+ls -l, displays directory in detail
+ls -a, displays hidden files
+ls -al, displays hidden file with detailed directory
+ls -lS, displays directory in descen order of size
+ls /*.html, all files ending with .html
+ls -lS > a.txt, stores result in text file
+ls -d */, this will only display directories
+ls -R, shows the current dir structure
+man ls, displays details of ls command
+drwxr-xr-r, d means directrory r is readable x is execute rights for current user; xr is for group user; r is for other user
+cd /, takes to the root directory
+cd ~, takes to the home directory which is root/user
+cd .., takes to the parent directory of current working direcory
+cd Doc, documents folder can also be accesed like this; known as relative path
+cd "My Doc", way to chang directory having its name with spaces or two/three arguements; cd 'My book' works too
+cat [option] [file1] [file2], syntax for cat command
+cat text1.txt, shows the content of text1 in terminal
+cat txt1.txt text2.txt, displays contnet of both the files
+cat -b text.txt, displays content by adding line numeber to non empty lines
+cat -n text.txt, similar as above buts adds line number to all the lines
+cat -s text.txt, shows the content and if there are continuous line breaks then they are combined into 1 line
+cat -E text.txt, shows content and adds dollar symbol to end of each line
+I/O redirection means capturing output from cmd/file/prgrm and sending it as input to another file/cmd/prgrm
+>, is the command for redirection
+cat > text.txt, means all the input in cat will be redirected to text file
+cat >> text.txt, this will append the contents of cat to text file
+ls -al > text.txt, saves the detailed directory with attributes to text.txt
+mkdir image/pics, creates directory pics inside image; will not create inf image dir doesn't exist
+mkdir -p image/pics, same as above but creates directory even if ismage dir isn't present
+mkdir -p img/{a,b,c} , creates dir a, b and c inside img
+rmdir abc/a, removes the dir a
+rmdir -pv a/b/c, removes the entire dir a,b and c; p means remove all, v is verbose to diplay process happening in the background; fails to remove those directories which aren't empty
+rm -r a/b/c, removes the given directory a,b and c no matter empty or not
+rm -r a, removes directory, subdirectoy, files, same as above but shorter
+cp option source destination, syntax for copy command
+cp text1.txt text2.txt, copies content of text1 to text2
+cp 1 2 dir, copies 1 and 2 to dir
+cp -i 1 2 dir, this ensures that for evry overwrite consent is taken from user
+cp ../1 ../2 . ,  this takes files from parent of current directory and pastes it in current dir (relative path method)
+cp -R dir1 dir2, copies content of dir1 to dir2, if files is present in dir1 then it won't work, to still do -R(recursive) needs to be used
+mv f.txt t.txt, moves f.txt content to t.txt, basically renames 
+mv a.txt  dir/, moves a.txt to dir
+mv -i a.txt dir/, will ask before overwriting
+less a.txt, shows the content of file from starting and until the terminal allows; to see more lines press down arrow key; use space to read page by page in downward direction; ctrl to page up; shift+g to end of text file; g to go to starting of page; G to ending of page; /book will search book in downward direction press n to go to next search result; ?book will search for book in upward direction and other features of downward search will work here; q to exit less command
+touch a.txt, creates an empty file or if the file is already present updates its timestamp
+sudo -s, gives you super user mode
+top, shows the entire processes and resources in use
+pidof unity, gives pid of unity
+kill 123, kills the process having pid 123
+kill -KILL 123, force closes the process 123
+kill -9 123, another way to force kill
+ps -ux, gives list of running processes current user
+ps -aux, same as above but for all users
+ps -U abc, same as above but only for user abc
+ps -C abc, insatnce of all the program abc
+echo hello, displays hello in terminal
+echo "hh hh", displays hh hh in terminal
+var="ax", variabl gets stored in memory having value a
+echo "value is $var, display the content of variable; value is ax
+echo -e "some \text", displays some ext and tab space because of \t and e flag; \n for line
+chmod o+x a.txt, gives executable persmission to other user for a.txt; o is for other; g is for group;ug is for creator and group user; +/- is for granting/revoking; x is for executable
+chmod ug=rwx a.txt, will give rwx right to group and creator for a.txt
+chmod a-rwx a.txt, revokes permission for all the users for file a.txt
+chmod 000 file.txt, giving permission in form of binary to file.text; 0 for user; 0 for group; 0 for others
+which ls, this gives location of ls command; used to get location for scripting purpose
+whatis ls, gives short description of ls command
+useradd abc -m -s /bin/bash -g users -c "ss", command used to add user to system; abc is username; m flag creates user in home dir; s flag gives bash/shell directory to user; -g defines the group for user; -c is used to give description/comment to user
+passwd abc; cmd to change the password of user
+userdel abc; deletes user abc; ensure use such cmds with sudo; dooesn't delete user folder in home directory
+userdel -r abc, removes abc user including its home directory
+groups, shows the groups current user is connected to
+cat /etc/group, shows all the groups in system and their associations
+groupadd abc, adds a group abc
+groupdel abc, deletes group abc
+gpasswd -a abc bcd, adds user abc to bcd group; use d flag to remove from the group
+
+.bashrc file is a script executed whenever a new terminal session is started in interactive mode
+nano .bashrc, to view content of bashrc file
+
+df -h, shows disk space used/available in human readable form
+du -h, shows the space used by folder in human readable form
+du -sh, shows only the space used by current folder no summary
+free -m, shows the free and used ram; swap used etc in megabytes;
+watch free -m, runs the commad 'free -m' in intervals
+watch -n 2 free -m, runs the command 'free -m' every 2 seconds
+head a.txt, shows the first 10 lines of text a
+tail a.txt, shows the last 10 lines of text a
+head -n3 a.txt, shows first three lines; same can be done with tail command
+tail -f a.txt, shows the last 10 line but doesn't exit the terminal and add the next lines when there's update in text a; follow tag
+head a.txt b.txt, dispalys first 10 line of both files
+find /down -name a.txt, searches for a.txt in down folder; wildcars can be used too; use on / instead of down to find in root directory
+find /home -mtime -2, displays file created in home folder 2 days ago from now
+wc a.txt, display count of lines; words and number of characters; use c flag to only diaplay number of characters
+cal, shows the calendar for current month
+ncal, dispalys calendar with week on left side
+cal 2016, shows the calendar for 2016 month
+cal 2 2016, shows feb month of 2016
+cal -3, shows previous; current and next month
+date, shows current date
+date -s "1/2/2003 11:11:00", sets the date to stirng
+date "+%d/%h/%y", displays date in formatted manner
+ls;pwd, this runs ls and pwd commands at once
+ls || pwd, if ls runs then pwd is not executed
+ls && pwd, if ls fails then pwd isnot executed
+multiple commands can be run at once by combining them using semi colon or &&
+difference between ; and && is that if with semi colon any of the command fails then executes the next command until end but in && if one command fails it doesn't proceed to next
+apt-get update, updates the local files repository and updates the package too
+etc/apt/sources.list, default local repository/package location
+a -version, shows the version of program a
+apt-get install a, installs software a
+apt-get remove a, removes software software a; but doesn't remove installed dependencies
+apt-get remove --purge a, this removes the dependencies too
+apt-get autoremove, removes packages which aren't needed
+ifconfig, shows the network details and configuration
+ifconfig w, shows interface w
+ifconfig w down, disables the inteface w; use up command to enable
+tar -cvf teat.tar test, creates compressed version test.tar for test folder; use -cvfz for creating tar.gz type file
+tar -xvf test.tar, uncompresses test.tar; use -xzvf to extract to extract tar.gz files
+grep- global regular expression; this commands checks for contents in a file which match the expression
+grep "opt" a.txt, displays the line of file text a which has opt
+grep -i "opy" a.txt, searches case insensitive
+grep -n "opy a.txt,dispalys the line number too
+grep -n "ot" a.txt b.xt c.txt, searches in different files
+grep -v "opt" *, shows the line which doesn't contain opt from all the file in current directory
+
+netstat, information regarding network statistics
+netstat -a, shows all the connection; tcp udp etc
+netstat -a | less, way to connections page by page
+netstat -at | less, will only show the tcp connections; u for udp
+netstat -l | less, only shows connections in listening state
+netstat -s | less, brief statistics
+netstat -p | less, shows pid of connections
+netstat -n | less, shows numerics of connections
+netstat -c, shows connections information and updates at frequency
+netstat -ie, same as ifconfig
+netstat -an | grep "a", shows the connections containg "a"
